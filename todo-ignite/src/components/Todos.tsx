@@ -55,7 +55,7 @@ export function Todos() {
             value={newTodo}
             onChange={handleNewTodoChange}
           />
-          <button type='submit'>
+          <button type='submit' disabled={newTodo.length === 0}>
             Criar
             <PlusCircle />
           </button>
