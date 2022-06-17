@@ -1,8 +1,16 @@
+.container {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+}
+
 .todoInput {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-bottom: 1rem;
   gap: 0.5rem;
 }
 
@@ -31,4 +39,71 @@
 
 .todoInput button:hover {
   background-color: var(--blue);
+}
+
+.todoList {
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.todoListTitle {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.tasksCreatedTitle {
+  color: var(--blue);
+}
+
+.tasksFinishedTitle {
+  color: var(--purple);
+}
+
+.tasksFinishedTitle > span {
+  margin-left: 0.5rem;
+  background-color: var(--gray-400);
+  color: var(--gray-200);
+  border-radius: 50%;
+}
+
+.todo {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 4.5rem;
+  background: var(--gray-500);
+  color: var(--gray-100);
+  padding: 1rem;
+}
+
+.todoBody {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  height: 100%;
+  padding: 0.5rem;
+}
+
+.todoBody input {
+  border-radius: 50%;
+}
+
+.todo > svg {
+ color: var(--gray-300);
+}
+
+.todo > svg:hover {
+  background: var(--gray-400);
+  color: var(--danger);
+ }
+
+.todo + .todo {
+  margin-top: 1rem;
 }
