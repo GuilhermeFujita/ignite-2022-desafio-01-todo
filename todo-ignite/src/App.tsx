@@ -7,9 +7,7 @@ import { InputTodo } from './components/InputTodo';
 export function App() {
   return (
     <div className='App'>
-      <div className={styles.header}>
-        <Header />
-      </div>
+      <Header />
       <div className={styles.wrapper}>
         <InputTodo />
       </div>
