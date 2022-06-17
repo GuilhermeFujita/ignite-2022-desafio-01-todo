@@ -1,10 +1,10 @@
 import { PlusCircle } from 'phosphor-react';
 
-import styles from './InputTodo.module.css';
+import styles from './Todos.module.css';
 
-export function InputTodo() {
+export function Todos() {
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.todoInput}>
       <input type='text' placeholder='Adicione uma tarefa' />
       <button>
         Criar

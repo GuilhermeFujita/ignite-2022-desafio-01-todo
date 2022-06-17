@@ -1,4 +1,4 @@
-.wrapper {
+.todoInput {
   width: 100%;
   display: flex;
   align-items: center;
@@ -6,7 +6,7 @@
   gap: 0.5rem;
 }
 
-.wrapper input {
+.todoInput input {
   width: 50%;
   height: 3rem;
   padding: 1rem;
@@ -15,7 +15,7 @@
   border: none;
 }
 
-.wrapper button {
+.todoInput button {
   display: flex;
   width: 5.6rem;
   height: 3rem;
@@ -29,6 +29,6 @@
   padding: 0.25rem;
 }
 
-.wrapper button:hover {
+.todoInput button:hover {
   background-color: var(--blue);
 }
