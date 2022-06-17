@@ -1,5 +1,6 @@
 import { PlusCircle, Trash } from 'phosphor-react';
-import { useEffect, useState } from 'react';
+import { ChangeEvent, FormEvent, useEffect, useState } from 'react';
+import { v4 as uuid } from 'uuid';
 
 import styles from './Todos.module.css';
 
@@ -16,9 +17,26 @@ export function Todos() {
   ]);
   const [totalTasks, setTotalTasks] = useState(0);
   const [doneTasks, setDoneTasks] = useState(0);
+  const [newTodo, setNewTodo] = useState('');
 
   function handleDeleteTodo(todoId: string) {
     setTodos(todos.filter((todo) => todo.id !== todoId));
+  }
+
+  function handleNewTodoChange(event: ChangeEvent<HTMLInputElement>) {
+    setNewTodo(event.target.value);
+  }
+
+  function handleCreateTodo(event: FormEvent) {
+    event.preventDefault();
+    const createdTodo = {
+      id: uuid(),
+      content: newTodo,
+      isDone: false,
+    };
+
+    setTodos([...todos, createdTodo]);
+    setNewTodo('');
   }
 
   useEffect(() => {
@@ -28,13 +46,21 @@ export function Todos() {
 
   return (
     <div className={styles.container}>
-      <div className={styles.todoInput}>
-        <input type='text' placeholder='Adicione uma tarefa' />
-        <button>
-          Criar
-          <PlusCircle />
-        </button>
-      </div>
+      <form onSubmit={handleCreateTodo}>
+        <div className={styles.todoInput}>
+          <input
+            type='text'
+            name='newTodo'
+            placeholder='Adicione uma tarefa'
+            value={newTodo}
+            onChange={handleNewTodoChange}
+          />
+          <button type='submit'>
+            Criar
+            <PlusCircle />
+          </button>
+        </div>
+      </form>
 
       <div className={styles.todoList}>
         <div className={styles.todoListTitle}>
