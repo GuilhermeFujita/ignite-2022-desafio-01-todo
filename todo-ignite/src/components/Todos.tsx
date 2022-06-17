@@ -42,6 +42,17 @@ export function Todos() {
     setNewTodo('');
   }
 
+  function handleTodoIsDone(todoId: string) {
+    let updatedTodos = [...todos].map((todo) => {
+      if (todo.id === todoId) {
+        todo.isDone = !todo.isDone;
+      }
+      return todo;
+    });
+
+    setTodos(updatedTodos);
+  }
+
   useEffect(() => {
     setTotalTasks(todos.length);
     setDoneTasks(todos.filter((todo) => todo.isDone).length);
@@ -81,8 +92,16 @@ export function Todos() {
           {todos.map((todo) => {
             return (
               <div className={styles.todo} key={todo.id}>
-                <div className={styles.todoBody}>
-                  <input type='checkbox' />
+                <div
+                  className={
+                    todo.isDone ? styles.todoCompleted : styles.todoBody
+                  }
+                >
+                  <input
+                    type='checkbox'
+                    checked={todo.isDone}
+                    onClick={() => handleTodoIsDone(todo.id)}
+                  />
                   <p>{todo.content}</p>
                 </div>
                 <Trash onClick={() => handleDeleteTodo(todo.id)} size={24} />
