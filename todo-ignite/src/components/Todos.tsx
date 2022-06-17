@@ -11,10 +11,7 @@ interface Todo {
 }
 
 export function Todos() {
-  const [todos, setTodos] = useState<Todo[]>([
-    { id: '1', content: 'Learn TypeScript', isDone: false },
-    { id: '2', content: 'Teste', isDone: false },
-  ]);
+  const [todos, setTodos] = useState<Todo[]>([]);
   const [totalTasks, setTotalTasks] = useState(0);
   const [doneTasks, setDoneTasks] = useState(0);
   const [newTodo, setNewTodo] = useState('');
