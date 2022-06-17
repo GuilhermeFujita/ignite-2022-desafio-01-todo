@@ -29,6 +29,9 @@ export function Todos() {
 
   function handleCreateTodo(event: FormEvent) {
     event.preventDefault();
+
+    if (newTodo.trim() === '') return;
+
     const createdTodo = {
       id: uuid(),
       content: newTodo,
